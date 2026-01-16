@@ -1,29 +1,9 @@
-import React, { useEffct, useEffect, useState } from "react";
-import Button from "./Components/Button";
-import './Components/theme.css'
+import React from 'react'
 
-const App = () => {
-  const [theme, setTheme] = useState("Light");
-
-  useEffect(() => {
-    console.log("Ran at page Load");
-    document.body.className=theme;
-  }, [theme]);
-
+function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <input
-        type="text"
-        placeholder="Toggle Theme"
-        value={theme}
-        onChange={(e) => setTheme(e.target.value)}
-      />
+    <div>App</div>
+  )
+}
 
-      <button onClick={() => setTheme(theme === "Light" ? "Dark" : "Light")}>
-        Click Me To Change Theme
-      </button>
-    </div>
-  );
-};
-
-export default App;
+export default App
