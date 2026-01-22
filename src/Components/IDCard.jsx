@@ -3,7 +3,7 @@ import React from "react";
 const IDCard = ({ name, role, age, HandleDelete }) => {
   return (
     <div
-      className="card"  
+      className="card"
       style={{
         backgroundColor:
           role === "captain"
