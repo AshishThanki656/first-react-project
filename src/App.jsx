@@ -1,7 +1,26 @@
 import { useState } from "react";
 import DynamicID from "./Components/DynamicID";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import Bulb from "./Components/Bulb";
+import IDcard from "./Components/IDCard";
+
+const App = () => {
+  const routes = [
+    {
+      path: "/",
+      element: <Bulb />,
+    },
+    {
+      path: "/id-card",
+      element: <IDcard />,
+    },
+    {
+      path: "*",
+      element: <h1>404 Not Found</h1>,
+    },
+  ];
+
   const [cardData, setCardData] = useState([]);
   const [currentId, setCurrentId] = useState(1);
 
@@ -25,7 +44,14 @@ function App() {
   };
 
   return (
-    <div>
+    <Router>
+      <Routes>
+        {routes.map((route) => (
+          <Route path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
+    /*<div>
       <DynamicID onAdd={handleAdd} mode="add" />
 
       <h2>Existing ID Cards</h2>
@@ -41,9 +67,10 @@ function App() {
           onDelete={handleDelete}
           mode="view"
         />
-      ))}
-    </div>
+      ))} 
+      </div>
+      */
   );
-}
+};
 
 export default App;
